@@ -3,10 +3,14 @@ class UsersController < ApplicationController
     @user = User.new
 end
 
+def user_params 
+params.require(:user).permit(:username, :name, :email, :password ,:password_confirmation ,:avatar_url)
+end
+
 def create
-  @user = User.new(params[:user])
- 
- user_params :avatar_url, :email, :name, :password, :password_confirmation, :username
+  @user = User.new(params[:user_params])
+  
+
   if @user.save
     redirect_to @user, notice: "Thank you for signing up for Ribbit!"
   else
@@ -18,8 +22,6 @@ def show
   @user = User.find(params[:id])
 end
 
-def user_params
-params.require(:user).permit(:avatar_url, :email, :name, :password, :password_confirmation, :username)
-end
+
 
 end
