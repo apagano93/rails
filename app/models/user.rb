@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
 	before_validation :prep_email
 	
 
-	has_secure_password
+	#has_secure_password
 	# ------------------That's our problem-----------------
-	validates :name, presence: true
-	validates :username, uniqueness: true, presence: true
-	validates :email, uniqueness: true, presence: true#, format: { with: /\A[\w.+-]+@([\w]+.)+\w+\z+/ }
+	#validates :name, presence: true
+	#validates :username, uniqueness: true, presence: true
+	#validates :email, uniqueness: true, presence: true#, format: { with: /\A[\w.+-]+@([\w]+.)+\w+\z+/ }
 
 	private
  
@@ -18,7 +18,8 @@ end
 
 def create_avatar_url
    # self.avatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=50"
-   self.avatar_url = "http://www.random.com"
+   self.avatar_url = "http://cdn.slidesharecdn.com/profile-photo-RailsGirlsZurich-96x96.jpg?cb=1355056560"
+
 end
 
 end

@@ -12,7 +12,7 @@ def create
   
 
   if @user.save
-    redirect_to @user, notice: "Thank you for signing up for Ribbit!"
+    redirect_to @user, notice: "Thank you for signing up for RedBeat!"
   else
     render 'new'
   end
