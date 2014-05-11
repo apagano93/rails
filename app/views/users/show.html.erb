@@ -21,7 +21,13 @@
 </div>
 <div class="panel left">
     <h1>Your Redbeat</h1>
-    <div class="ribbitWrapper">
-        RedBeats coming . . .
-    </div>
+     <% @user.ribbits.each do |ribbit| %>
+        <div class="ribbitWrapper">
+            <img class="avatar" src="<%= @user.avatar_url %>">
+            <span class="name"><%= @user.name %></span> 
+            @<%= @user.username %> 
+            <span class="time"><%= time_ago_in_words(ribbit.created_at) %></span>
+            <p> <%= ribbit.content %> </p>
+        </div>
+    <% end %>
 </div>
